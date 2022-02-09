@@ -1,7 +1,9 @@
 from flask import Flask
 from app.routes import home, dashboard
+from app.db import init_db
 
 def create_app( test_config=None):
+  init_db(app)
   # set up app config
   app = Flask(__name__, static_url_path='/')
   app.url_map.strict_slashes = False
